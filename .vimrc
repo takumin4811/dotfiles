@@ -81,8 +81,14 @@ set showmatch
 set wildmenu wildmode=list:longest,full
 
 "クリップボードを使う"
-set clipboard=unnamed,unnamedplus
+set clipboard=unnamed
 
 
-set mouse=a
+set paste
+
+
+
+let &t_SI .= "\e[5 q"
+let &t_EI .= "\e[1 q"
+
 

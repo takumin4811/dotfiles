@@ -21,10 +21,13 @@ unset HISTCONTROL
 export HISTTIMEFORMAT
 export HISTSIZE
 
- 
+
 
 HISTIGNORE=ls*:pwd:history*
 HISTCONTROL=ignoredups
+
+source ~/dotfiles/aws_secret
+
 
 
 
