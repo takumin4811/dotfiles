@@ -81,10 +81,10 @@ set showmatch
 set wildmenu wildmode=list:longest,full
 
 "クリップボードを使う"
-set clipboard=unnamed
+set clipboard=unnamed,unnamedplus,autoselect
 
 
-set paste
+"set paste
 
 
 
