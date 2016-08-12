@@ -29,9 +29,10 @@ export LANG
 HISTIGNORE=ls:pwd:history*
 HISTCONTROL=ignoredups
 
+
 # .bash.d fragment
 if [ -d "${HOME}/.bash_profile.d" ] ; then
-    for f in "${HOME}"/.bash_proile.d/*.sh ; do
+    for f in "${HOME}"/.bash_profile.d/*.sh ; do
         [ -x "$f" ] && . "$f"
     done
     unset f
