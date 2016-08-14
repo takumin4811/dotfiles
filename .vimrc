@@ -84,11 +84,11 @@ set wildmenu wildmode=list:longest,full
 set clipboard=unnamed,unnamedplus,autoselect
 
 
-"set paste
+set paste
 
-
-
+" カーソルを変更
+"https://github.com/Peranikov/dotfiles/blob/master/.vimrc.basic
 let &t_SI .= "\e[5 q"
-let &t_EI .= "\e[1 q"
+let &t_EI .= "\e[5 q"
 
 
