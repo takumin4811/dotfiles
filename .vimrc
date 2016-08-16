@@ -1,14 +1,53 @@
+"dein Scripts-----------------------------
+if &compatible
+  set nocompatible               " Be iMproved
+endif
 
-inoremap ( ()<LEFT>
-inoremap { {}<LEFT>
-inoremap [ []<LEFT>
-inoremap " ""<LEFT>
-inoremap ' ''<LEFT>
-vnoremap { "zdi^V{<C-R>z}<ESC>
-vnoremap [ "zdi^V[<C-R>z]<ESC>
-vnoremap ( "zdi^V(<C-R>z)<ESC>
-vnoremap " "zdi^V"<C-R>z^V"<ESC>
-vnoremap ' "zdi'<C-R>z'<ESC>
+" Required:
+set runtimepath^=/home/apl/dotfiles/.vim/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+call dein#begin('/home/apl/dotfiles/.vim/dein')
+
+" Let dein manage dein
+" Required:
+call dein#add('Shougo/dein.vim')
+
+" Add or remove your plugins here:
+call dein#add('Shougo/neosnippet.vim')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('scrooloose/nerdtree')
+call dein#add('jistr/vim-nerdtree-tabs')
+
+"ファイルに変更が加わった際に、NERD treeのツリーに変更を示すアイコンを表示します。
+call dein#add('Xuyuanp/nerdtree-git-plugin')
+
+"ファイルに変更が加わった際に、Vimの行番号のところに「+」や「-」といった差分情報を表示します。
+call dein#add('airblade/vim-gitgutter')
+
+"プロジェクト内のファイルやバッファ、履歴からファイルを検索することができます。
+call dein#add('ctrlpvim/ctrlp.vim')
+
+"カッコ（(や{など）を入力すると、自動で閉じカッコを補完します。
+call dein#add('Townk/vim-autoclose')
+
+
+" You can specify revision/branch/tag.
+call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
+
+" Required:
+call dein#end()
+
+" Required:
+filetype plugin indent on
+
+" If you want to install not installed plugins on startup.
+if dein#check_install()
+  call dein#install()
+endif
+
+"End dein Scripts-------------------------
+
 
 
 
@@ -64,8 +103,6 @@ set incsearch
 "検索後をハイライト表示
 set wrapscan
 
-"ESC連打でハイライト解除
-nmap <Esc><Esc> :nohlsearch<CR><Esc>"
 
 
 "set autoindent
@@ -88,7 +125,29 @@ set paste
 
 " カーソルを変更
 "https://github.com/Peranikov/dotfiles/blob/master/.vimrc.basic
-let &t_SI .= "\e[5 q"
-let &t_EI .= "\e[5 q"
+let &t_SI .= "\e[5 q" " 入力モードはライン型
+let &t_EI .= "\e[1 q" " ノーマルモードはブロック型
+
+
+
+"======プラグイン設定=======================
+
+"###nerdtree
+
+"Ctrl-E でツリー起動
+nnoremap <silent><C-e> :NERDTreeToggle<CR>
+
+" 不可視ファイルを表示する
+let NERDTreeShowHidden = 1
+
+
+
+"###jistr/vim-nerdtree-tabs
+"######ツリーを共有でき、タブ間を移動してもツリーを表示し続けることができます。
+
+" ファイルが指定されていなければNERD treeを有効にする
+if argc() == 0
+  let g:nerdtree_tabs_open_on_console_startup = 1
+end
 
 
